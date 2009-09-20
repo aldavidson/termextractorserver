@@ -1,0 +1,17 @@
+#!/bin/bash
+
+case $1 in
+        start)
+              cd /var/www/term_extractor_server/current/
+	      nohup jruby app.rb -p 4567 RACK_ENV=production > /var/log/term_extractor_server/production.log 2>&1 &
+	      echo $! > tmp/production.pid
+	;;
+        stop)
+              cd /var/www/term_extractor_server/current/ 
+	      kill -9 `cat tmp/production.pid`
+        ;;
+        *)
+              echo "usage: term_extractor_server start|stop"
+        ;;
+esac
+
