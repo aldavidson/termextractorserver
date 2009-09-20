@@ -6,4 +6,5 @@ jruby -S gem install hpricot --version=0.1.164
 jruby -S gem install DRMacIver-term-extractor
 jruby -S gem install json-jruby
 jruby -S gem install builder
+jruby -S gem install thin
 
