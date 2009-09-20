@@ -27,7 +27,7 @@ get '/terms' do
     end
 end
 
-post 'terms' do
+post '/terms' do
   
   @terms = TERM_EXTRACTOR.extract_terms_from_text(params[:text])
   
