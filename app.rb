@@ -9,11 +9,7 @@ def term_extractor
   Thread.current['term-extractor'] ||= TermExtractor.new 
 end 
 
-get '/' do
-  'Hello world!'
-end
-
-get '/terms' do
+def do_extraction
   @terms = term_extractor.extract_terms_from_text(params[:text])
   
   case params[:format]
@@ -28,18 +24,15 @@ get '/terms' do
     end
 end
 
+
+get '/' do
+  'Hello world!'
+end
+
+get '/terms' do
+  do_extraction
+end
+
 post '/terms' do
-  
-  @terms = TERM_EXTRACTOR.extract_terms_from_text(params[:text])
-  
-  case params[:format]
-    when 'xml'
-      content_type 'application/xml', :charset => 'utf-8'
-      builder :terms
-    when 'json'
-      content_type :json
-      @terms.to_json
-    else
-      erb :terms
-    end
+  do_extraction
 end
