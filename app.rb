@@ -5,15 +5,16 @@ require 'json'
 require 'erb'
 require 'builder'
 
-TERM_EXTRACTOR = TermExtractor.new()
- 
+def term_extractor
+  Thread.current['term-extractor'] ||= TermExtractor.new 
+end 
 
 get '/' do
   'Hello world!'
 end
 
 get '/terms' do
-  @terms = TERM_EXTRACTOR.extract_terms_from_text(params[:text])
+  @terms = term_extractor.extract_terms_from_text(params[:text])
   
   case params[:format]
     when 'xml'
