@@ -8,6 +8,22 @@
         <dd><%= term.pos %></dd>
       <dt>Sentence:</dt>
         <dd><%= term.sentence %></dd>
+      <dt>Chunks:</dt>
+        <dd>
+          <ul>
+          <% for chunk in term.chunks %>
+            <li><%= chunk %></li>
+          <% end %>
+          </ul>
+        </dd>
+      <dt>Tokens:</dt>
+        <dd>
+          <ul>
+          <% for token in term.tokens %>
+            <li><%= token %></li>
+          <% end %>
+          </ul>
+        </dd>
     </dl>
   </li>
 <% end %>

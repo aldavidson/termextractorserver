@@ -18,10 +18,17 @@ def do_extraction
       builder :terms
     when 'json'
       content_type :json
-      @terms.map{ |t| {'term'=>t.to_s, 'pos'=>t.pos, 'sentence'=>t.sentence} }.to_json
+      @terms.map{ |t| term_to_hash(t) }.to_json
     else
       erb :terms
     end
+end
+
+def term_to_hash(t)
+  h = {'term'=>t.to_s, 'pos'=>t.pos, 'chunk'=>t.chunk, 'sentence'=>t.sentence} 
+  h['chunks'] = t.chunks
+  h['tokens'] = t.tokens
+  h
 end
 
 
