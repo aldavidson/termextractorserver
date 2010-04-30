@@ -25,7 +25,7 @@ def do_extraction
 end
 
 def term_to_hash(t)
-  {'term'=>t.to_s, 'pos'=>t.pos, 'sentence'=>t.sentence, 'chunks'=>t.chunks, 'tokens'=>t.tokens}
+  {'to_s'=>t.to_s, 'pos'=>t.pos, 'sentence'=>t.sentence, 'chunks'=>t.chunks, 'tokens'=>t.tokens}
 end
 
 
