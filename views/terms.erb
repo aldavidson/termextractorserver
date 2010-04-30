@@ -1,5 +1,14 @@
 <ul>
 <% for term in @terms %>
-  <li><%= term.to_s %></li>
+  <li>
+    <dl>
+      <dt>Term:</dt>
+        <dd><%= term.to_s %></dd>
+      <dt>P.O.S.:</dt>
+        <dd><%= term.pos %></dd>
+      <dt>Sentence:</dt>
+        <dd><%= term.sentence %></dd>
+    </dl>
+  </li>
 <% end %>
 </ul>

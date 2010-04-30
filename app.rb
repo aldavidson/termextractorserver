@@ -18,7 +18,7 @@ def do_extraction
       builder :terms
     when 'json'
       content_type :json
-      @terms.to_json
+      @terms.map{ |t| {'term'=>t.to_s, 'pos'=>t.pos, 'sentence'=>t.sentence} }.to_json
     else
       erb :terms
     end
