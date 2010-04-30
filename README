@@ -1,0 +1,66 @@
+A very simple Sinatra webservice wrapper around DRMaciver's termextractor.
+
+INSTALLATION
+------------
+To install required gems, run:
+
+script/install_gems
+
+
+RUNNING
+-------
+To run the webservice, run:
+
+jruby app.rb RACK_ENV=production
+
+(NOTE: the termextractor gem requires jruby, hence so does the webservice)
+
+This will start by default on port 4567. You can specify a different port with the -p parameter
+
+
+USAGE
+-----
+The webservice responds to GET or POST requests to /terms, with the following parameters:
+
+format=<xml|json|html>
+
+Format in which to return results (default is html)
+
+text=<text from which to extract terms>
+
+
+e.g. assuming the webservice is running on localhost, port 4567
+
+
+http://localhost:4567/terms?text=Term%20Extractor%20Server
+
+produces:
+
+<ul> 
+  <li> 
+    <dl> 
+      <dt>Term:</dt> 
+        <dd>Term Extractor Server</dd> 
+      <dt>P.O.S.:</dt> 
+        <dd>NN-NNP-NNP</dd> 
+      <dt>Sentence:</dt> 
+        <dd>0</dd> 
+      <dt>Chunks:</dt> 
+        <dd> 
+          <ul> 
+            <li>B-NP</li>      
+            <li>I-NP</li> 
+            <li>I-NP</li> 
+          </ul> 
+        </dd> 
+      <dt>Tokens:</dt> 
+        <dd> 
+          <ul> 
+            <li>Term</li> 
+            <li>Extractor</li> 
+            <li>Server</li> 
+          </ul> 
+        </dd> 
+    </dl> 
+  </li> 
+</ul>
