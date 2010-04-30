@@ -1,26 +1,26 @@
-<ul>
+<ul class="terms">
 <% for term in @terms %>
-  <li>
+  <li class="term">
     <dl>
-      <dt>Term:</dt>
-        <dd><%= term.to_s %></dd>
-      <dt>P.O.S.:</dt>
-        <dd><%= term.pos %></dd>
-      <dt>Sentence:</dt>
-        <dd><%= term.sentence %></dd>
+      <dt>to_s:</dt>
+        <dd class="to_s"><%= term.to_s %></dd>
+      <dt>pos:</dt>
+        <dd class="pos"><%= term.pos %></dd>
+      <dt>sentence:</dt>
+        <dd class="sentence"><%= term.sentence %></dd>
       <dt>Chunks:</dt>
         <dd>
-          <ul>
+          <ul class="chunks">
           <% for chunk in term.chunks %>
-            <li><%= chunk %></li>
+            <li class="chunk"><%= chunk %></li>
           <% end %>
           </ul>
         </dd>
       <dt>Tokens:</dt>
         <dd>
-          <ul>
+          <ul class="tokens">
           <% for token in term.tokens %>
-            <li><%= token %></li>
+            <li class="token"><%= token %></li>
           <% end %>
           </ul>
         </dd>

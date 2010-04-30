@@ -39,26 +39,26 @@ produces:
 <ul> 
   <li> 
     <dl> 
-      <dt>Term:</dt> 
-        <dd>Term Extractor Server</dd> 
-      <dt>P.O.S.:</dt> 
-        <dd>NN-NNP-NNP</dd> 
-      <dt>Sentence:</dt> 
-        <dd>0</dd> 
-      <dt>Chunks:</dt> 
+      <dt>to_s:</dt> 
+        <dd class="to_s">Term Extractor Server</dd> 
+      <dt>pos:</dt> 
+        <dd class="pos">NN-NNP-NNP</dd> 
+      <dt>sentence:</dt> 
+        <dd class="sentence">0</dd> 
+      <dt>chunks:</dt> 
         <dd> 
-          <ul> 
-            <li>B-NP</li>      
-            <li>I-NP</li> 
-            <li>I-NP</li> 
+          <ul class="chunks"> 
+            <li class="chunk">B-NP</li>      
+            <li class="chunk">I-NP</li> 
+            <li class="chunk">I-NP</li> 
           </ul> 
         </dd> 
       <dt>Tokens:</dt> 
         <dd> 
-          <ul> 
-            <li>Term</li> 
-            <li>Extractor</li> 
-            <li>Server</li> 
+          <ul class="tokens"> 
+            <li class="token">Term</li> 
+            <li class="token">Extractor</li> 
+            <li class="token">Server</li> 
           </ul> 
         </dd> 
     </dl> 
