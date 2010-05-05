@@ -5,12 +5,16 @@ require 'json'
 require 'erb'
 require 'builder'
 
+require 'models/term_extractor_wrapper'
+
 def term_extractor
-  Thread.current['term-extractor'] ||= TermExtractor.new 
+  TermExtractorWrapper.instance
 end 
 
-def do_extraction
-  @terms = term_extractor.extract_terms_from_text(params[:text])
+def do_extraction( text )
+  start = Time.now
+  @terms = term_extractor.extract_terms_from_text(text)
+  puts "extracted terms in #{Time.now - start}s"
   
   case params[:format]
     when 'xml'
@@ -34,9 +38,9 @@ get '/' do
 end
 
 get '/terms' do
-  do_extraction
+  do_extraction(params[:text])
 end
 
 post '/terms' do
-  do_extraction
+  do_extraction(params[:text])
 end
